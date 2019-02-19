@@ -83,7 +83,7 @@ router.post("/customer", (req, res) => {
       // NodeMailer
       let transporter = nodemailer.createTransport({
         host: "smtp.stackmail.com",
-        port: 587,
+        port: 25,
         secure: false, // true for 465, false for other ports
         auth: {
           user: "offer@spicesnflavours.com", // generated ethereal user
