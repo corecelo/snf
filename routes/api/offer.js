@@ -143,32 +143,32 @@ router.delete("/customer/:id", (req, res) => {
   });
 });
 
-router.post("/addcount", (req, res) => {
-  const count = new Counter({
-    count: 0
-  });
+// router.post("/addcount", (req, res) => {
+//   const count = new Counter({
+//     count: 0
+//   });
 
-  count
-    .save()
-    .then(resopnse => res.json(resopnse))
-    .catch(err => console.log(err));
-});
+//   count
+//     .save()
+//     .then(resopnse => res.json(resopnse))
+//     .catch(err => console.log(err));
+// });
 
-router.get("/addcount", (req, res) => {
-  Counter.findById("5c6bbd0af4cad211e11a15ce")
-    .then(count => res.json(count))
-    .catch(err => console.log(err));
-});
+// router.get("/addcount", (req, res) => {
+//   Counter.findById("5c6bbd0af4cad211e11a15ce")
+//     .then(count => res.json(count))
+//     .catch(err => console.log(err));
+// });
 
-router.post("/resetcount", (req, res) => {
-  Counter.findById("5c6bbd0af4cad211e11a15ce")
-    .then(counter => {
-      counter.count = 0;
-      counter.save().then(count => {
-        res.json(count);
-      });
-    })
-    .catch(err => console.log(err));
-});
+// router.post("/resetcount", (req, res) => {
+//   Counter.findById("5c6bbd0af4cad211e11a15ce")
+//     .then(counter => {
+//       counter.count = 0;
+//       counter.save().then(count => {
+//         res.json(count);
+//       });
+//     })
+//     .catch(err => console.log(err));
+// });
 
 module.exports = router;
