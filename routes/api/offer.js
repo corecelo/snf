@@ -81,18 +81,17 @@ router.post("/customer", (req, res) => {
 
       // NodeMailer
       let transporter = nodemailer.createTransport({
-        host: "smtp.stackmail.com",
-        port: 587,
-        secure: false, // true for 465, false for other ports
+        // if somthing goes wrong put the default file here
+        service: "gmail",
         auth: {
-          user: "support@spicesnflavours.com", // generated ethereal user
-          pass: "Si78757875" // generated ethereal password
+          user: "psiddhesh14@gmail.com", // generated ethereal user
+          pass: "ramkrishna" // generated ethereal password
         }
       });
 
       // setup email data with unicode symbols
       let mailOptions = {
-        from: '"Spices & Flavours" <support@spicesnflavours.com>', // sender address
+        from: '"Spices & Flavours" <psiddhesh14@gmail.com>', // sender address
         to: `${req.body.email}`, // list of receivers
         subject: "Avail Offer ✔", // Subject line
         text: "Hello world body", // plain text body
