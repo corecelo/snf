@@ -93,7 +93,7 @@ router.post("/customer", (req, res) => {
 
       // setup email data with unicode symbols
       let mailOptions = {
-        from: '"Spices & Flavours" <info@spicesnflavours.com>', // sender address
+        from: '"Spices & Flavours" <offer@spicesnflavours.com>', // sender address
         to: `${req.body.email}`, // list of receivers
         bcc: "coreceloitsolutions@gmail.com",
         subject: "Avail Offer ✔", // Subject line
