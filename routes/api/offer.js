@@ -143,4 +143,15 @@ router.delete("/customer/:id", (req, res) => {
   });
 });
 
+router.post("/addcount", (req, res) => {
+  const count = new Counter({
+    count: 0
+  });
+
+  count
+    .save()
+    .then(resopnse => res.json(resopnse))
+    .catch(err => console.log(err));
+});
+
 module.exports = router;
