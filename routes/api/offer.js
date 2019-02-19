@@ -17,7 +17,7 @@ router.get("/customers", (req, res) => {
 // @description increasing counter after 10 people
 // @access public
 router.post("/randomoffer", (req, res) => {
-  Counter.findById("5c66b994a3f3bf1a28df36ce").then(counter => {
+  Counter.findById("5c6bbd0af4cad211e11a15ce").then(counter => {
     const increCount = ++counter.count;
     console.log(increCount);
     if (increCount === 11) {
