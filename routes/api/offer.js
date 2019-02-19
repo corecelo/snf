@@ -164,7 +164,9 @@ router.post("/resetcount", (req, res) => {
   Counter.findById("5c6bbd0af4cad211e11a15ce")
     .then(counter => {
       counter.count = 0;
-      counter.save();
+      counter.save().then(count => {
+        res.json(count);
+      });
     })
     .catch(err => console.log(err));
 });
