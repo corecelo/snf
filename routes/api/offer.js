@@ -35,7 +35,6 @@ router.post("/randomoffer", (req, res) => {
     } else {
       const offers = [10, 15];
       let randomNumber = Math.floor(Math.random() * 2 + 1);
-      console.log(randomNumber);
 
       const selectedOffer = offers[--randomNumber];
 
@@ -156,7 +155,9 @@ router.post("/addcount", (req, res) => {
 });
 
 router.get("/addcount", (req, res) => {
-  Counter.findById("5c6bbd0af4cad211e11a15ce").then(count => res.json(count));
+  Counter.findById("5c6bbd0af4cad211e11a15ce")
+    .then(count => res.json(count))
+    .catch(err => console.log(err));
 });
 
 module.exports = router;
