@@ -19,7 +19,6 @@ router.get("/customers", (req, res) => {
 router.post("/randomoffer", (req, res) => {
   Counter.findById("5c6bbd0af4cad211e11a15ce").then(counter => {
     const increCount = ++counter.count;
-    console.log(increCount);
     if (increCount === 11) {
       const offers = [20, 25];
       let randomNumber = Math.floor(Math.random() * 2 + 1);
