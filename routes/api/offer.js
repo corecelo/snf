@@ -101,7 +101,7 @@ router.post("/customer", (req, res) => {
         html: `${msgBody}` // html body
       };
 
-      // send mail with defined transport object
+      // send mail with defined transport obje
       let info = await transporter.sendMail(mailOptions);
 
       console.log("Message sent: %s", info.messageId);
