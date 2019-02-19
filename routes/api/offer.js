@@ -160,4 +160,13 @@ router.get("/addcount", (req, res) => {
     .catch(err => console.log(err));
 });
 
+router.post("/resetcount", (req, res) => {
+  Counter.findById("5c6bbd0af4cad211e11a15ce")
+    .then(counter => {
+      counter.count = 0;
+      counter.save();
+    })
+    .catch(err => console.log(err));
+});
+
 module.exports = router;
