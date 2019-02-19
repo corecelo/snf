@@ -22,7 +22,7 @@ router.post("/randomoffer", (req, res) => {
     console.log(increCount);
     if (increCount === 11) {
       const offers = [20, 25];
-      let randomNumber = Math.floor(Math.random() * 1 + 1);
+      let randomNumber = Math.floor(Math.random() * 2 + 1);
 
       const selectedOffer = offers[--randomNumber];
 
@@ -34,7 +34,8 @@ router.post("/randomoffer", (req, res) => {
       return false;
     } else {
       const offers = [10, 15];
-      let randomNumber = Math.floor(Math.random() * 1 + 1);
+      let randomNumber = Math.floor(Math.random() * 2 + 1);
+      console.log(randomNumber);
 
       const selectedOffer = offers[--randomNumber];
 
