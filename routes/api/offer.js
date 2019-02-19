@@ -155,4 +155,8 @@ router.post("/addcount", (req, res) => {
     .catch(err => console.log(err));
 });
 
+router.get("/addcount", (req, res) => {
+  Counter.findById("5c6bbd0af4cad211e11a15ce").then(count => res.json(count));
+});
+
 module.exports = router;
