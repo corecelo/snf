@@ -33,8 +33,8 @@ router.post("/randomoffer", (req, res) => {
       counter.save();
       return false;
     } else {
-      const offers = [5, 10, 15];
-      let randomNumber = Math.floor(Math.random() * 2 + 1);
+      const offers = [10, 15];
+      let randomNumber = Math.floor(Math.random() * 1 + 1);
 
       const selectedOffer = offers[--randomNumber];
 
