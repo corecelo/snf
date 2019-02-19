@@ -107,7 +107,7 @@ router.post("/customer", (req, res) => {
       // Preview only available when sending through an Ethereal account
       console.log("Preview URL: %s", nodemailer.getTestMessageUrl(info));
 
-      Counter.findById("5c66b994a3f3bf1a28df36ce").then(counter => {
+      Counter.findById("5c6bbd0af4cad211e11a15ce").then(counter => {
         let newCount = ++counter.count;
         counter.count = newCount;
 
