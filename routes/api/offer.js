@@ -86,14 +86,14 @@ router.post("/customer", (req, res) => {
         port: 587,
         secure: false, // true for 465, false for other ports
         auth: {
-          user: "offers@spicesnflavours.com", // generated ethereal user
+          user: "offersnf@spicesnflavours.com", // generated ethereal user
           pass: "Si78757875" // generated ethereal password
         }
       });
 
       // setup email data with unicode symbols
       let mailOptions = {
-        from: '"Spices & Flavours" <offers@spicesnflavours.com>', // sender address
+        from: '"Spices & Flavours" <offersnf@spicesnflavours.com>', // sender address
         to: `${req.body.email}`, // list of receivers
         subject: "Avail Offer ✔", // Subject line
         text: "Hello world body", // plain text body
