@@ -1,0 +1,13 @@
+/node_modules
+package-lock.json
+
+host: "smtp.stackmail.com",
+        port: 587,
+
+        secure: false, // true for 465, false for other ports
+
+
+client id: 1014223391212-p328u6fp9586d0ten4ebd2v9c6vjrkif.apps.googleusercontent.com
+client secret: qYGUuwxuUYZMDXl36NfDrZ2k
+
+https://www.facebook.com/girgaon.mumbai/
