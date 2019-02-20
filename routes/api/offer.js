@@ -83,8 +83,8 @@ router.post("/customer", (req, res) => {
       // This is your API key that you retrieve from www.mailgun.com/cp
       var auth = {
         auth: {
-          api_key: "ea0f6d351727e78ffa1865d0c954aad4-9ce9335e-ea2fd99f",
-          domain: "offer.spicesnflavours.com"
+          api_key: "",
+          domain: ""
         }
       };
 
