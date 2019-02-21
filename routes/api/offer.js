@@ -80,32 +80,45 @@ router.post("/customer", (req, res) => {
         ${offerType}
         </p>`;
 
-      // NodeMailer
-      let transporter = nodemailer.createTransport({
-        host: "smtp.stackmail.com",
-        port: 587,
-        secure: false, // true for 465, false for other ports
+      // This is your API key that you retrieve from www.mailgun.com/cp
+      var auth = {
         auth: {
-          user: "offersnf@spicesnflavours.com", // generated ethereal user
-          pass: "Si78757875" // generated ethereal password
+          api_key: "",
+          domain: ""
         }
-      });
-
-      // setup email data with unicode symbols
-      let mailOptions = {
-        from: '"Spices & Flavours" <offersnf@spicesnflavours.com>', // sender address
-        to: `${req.body.email}`, // list of receivers
-        subject: "Avail Offer ✔", // Subject line
-        text: "Hello world body", // plain text body
-        html: `${msgBody}` // html body
       };
 
-      // send mail with defined transport obje
-      let info = await transporter.sendMail(mailOptions);
+      var nodemailerMailgun = nodemailer.createTransport(mg(auth));
 
-      console.log("Message sent: %s", info.messageId);
-      // Preview only available when sending through an Ethereal account
-      console.log("Preview URL: %s", nodemailer.getTestMessageUrl(info));
+      nodemailerMailgun.sendMail(
+        {
+          from: '"Spices & Flavours" <offers@spicesnflavours.com>',
+          to: `${req.body.email}`, // An array if you have multiple recipients.
+          subject: "OFFER",
+          "h:Reply-To": "no-reply",
+          //You can use "html:" to send HTML email content. It's magic!
+          html: `${msgBody}`,
+          //You can use "text:" to send plain-text content. It's oldschool!
+          text: "Mailgun rocks, pow pow!"
+        },
+        function(err, info) {
+          if (err) {
+            console.log("Error: " + err);
+          } else {
+            Counter.findById("5c66b994a3f3bf1a28df36ce").then(counter => {
+              let newCount = ++counter.count;
+              counter.count = newCount;
+
+              counter.save();
+            });
+
+            newCustomer
+              .save()
+              .then(customer => res.json(customer))
+              .catch(err => console.log(err));
+          }
+        }
+      );
 
       Counter.findById("5c6bbd0af4cad211e11a15ce").then(counter => {
         let newCount = ++counter.count;
