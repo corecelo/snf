@@ -14,8 +14,9 @@
     "express": "^4.16.4",
     "mongoose": "^5.4.12",
     "nodemailer": "^5.1.1",
-    "validator": "^10.11.0",
-    "nodemailer-mailgun-transport": "^1.4.0"
+    "nodemailer-mailgun-transport": "^1.4.0",
+    "npm": "^6.8.0",
+    "validator": "^10.11.0"
   },
   "devDependencies": {
     "nodemon": "^1.18.10"
