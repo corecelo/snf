@@ -1,10 +1,12 @@
-const express = require("express");
-const bodyparser = require("body-parser");
-const mongoose = require("mongoose");
-const cors = require("cors");
+const express = require('express');
+const bodyparser = require('body-parser');
+const mongoose = require('mongoose');
+const cors = require('cors');
+const passport = require('passport');
 
 // Loading Routes
-const offerRoute = require("./routes/api/offer");
+const offerRoute = require('./routes/api/offer');
+const adminRoute = require('./routes/api/admin');
 
 const app = express();
 
@@ -17,14 +19,21 @@ app.use(bodyparser.json());
 
 // connect to MongoDB
 mongoose
-  .connect("mongodb://localhost/offer", {
+  .connect('mongodb://sidd:Si78757875@ds213665.mlab.com:13665/offer', {
     useNewUrlParser: true
   })
-  .then(() => console.log("MongoDB Connected"))
+  .then(() => console.log('MongoDB Connected'))
   .catch(err => console.log(err));
 
-app.use("/api/offer", offerRoute);
+// Passport Middleware
+app.use(passport.initialize());
+
+// Passport Config
+require('./config/passport')(passport);
+
+app.use('/api/offer', offerRoute);
+app.use('/api/admin', adminRoute);
 
 const port = process.env.PORT || 3000;
 
-app.listen(port, () => console.log("Server is Running"));
+app.listen(port, () => console.log('Server is Running'));
