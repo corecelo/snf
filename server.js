@@ -19,7 +19,7 @@ app.use(bodyparser.json());
 
 // connect to MongoDB
 mongoose
-  .connect('mongodb://sidd:Si78757875@ds213665.mlab.com:13665/offer', {
+  .connect('mongodb://localhost/offer', {
     useNewUrlParser: true
   })
   .then(() => console.log('MongoDB Connected'))
